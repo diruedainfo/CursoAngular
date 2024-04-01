@@ -34,6 +34,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@picocss/pico/scss/pico.fluid.classless.scss",
               "src/styles.scss"
             ],
             "scripts": []
