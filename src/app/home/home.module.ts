@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomePage } from './home.page';
 import {SharedModule} from "../shared/shared.module";
 import {AgenciesModule} from "../agencies/agencies.module";
+import {TripsModule} from "../trips/trips.module";
 
 
 
@@ -14,6 +15,7 @@ import {AgenciesModule} from "../agencies/agencies.module";
     CommonModule,
     SharedModule,
     AgenciesModule,
+    TripsModule,
   ],
   exports: [
     HomePage

@@ -40,3 +40,9 @@ ng g c auth/login --type=page --dry-run
 ng g m agencies --route=agencies -m=app --dry-run
 ng g c agencies --type=list --dry-run
 ...
+ng g m trips --route=trips -m=app --dry-run
+ng g c trips --type=list --dry-run
+...
+ng g c shared/components/agencies --export --type=lista
+ng g c shared/components/trips --export --type=lista
+--
