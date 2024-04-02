@@ -6,26 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage implements OnInit {
-  public agencies = [
-    {
-      id: 'space-y',
-      name: 'Space Y',
-      range: 'Interplanetary',
-      status: 'Active',
-    },
-    {
-      id: 'green-origin',
-      name: 'Green Origin',
-      range: 'Orbital',
-      status: 'Active',
-    },
-    {
-      id: 'virgin-way',
-      name: 'Virgin Way',
-      range: 'Orbital',
-      status: 'Pending',
-    },
-  ]
+
   trips = [
     {
       id: 'space-y-moon-1',
@@ -104,9 +85,7 @@ export class HomePage implements OnInit {
     },
   ]
   public reloading = false;
-  public getAgenciesLength() {
-    return this.agencies.length;
-  }
+
 
   public getTripsLength() {
     return this.trips.length;

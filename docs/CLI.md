@@ -34,4 +34,9 @@ ng g c contact --type=page --dry-run
 ng g m auth/register --route=auth/register -m=app --dry-run
 ng g c auth/register --type=page --dry-run
 ...
-
+ng g m auth/login --route=auth/login -m=app --dry-run
+ng g c auth/login --type=page --dry-run
+...
+ng g m agencies --route=agencies -m=app --dry-run
+ng g c agencies --type=list --dry-run
+...
