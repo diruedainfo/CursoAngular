@@ -37,8 +37,6 @@
       <ng-template #tripOnly> 🚚 </ng-template>
 
       <span [ngClass]="trip.status | lowercase">{{ trip.status }}</span>
-      <span>{{ trip.extraLuggagePricePerKilo }}</span>
-      <span>{{ trip.premiumFoodPrice }}</span>
     </li>
   </ul>
   <button (click)="reload('agencies')" > © </button>

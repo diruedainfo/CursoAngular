@@ -22,3 +22,9 @@ ng g c home --type=page --export
 ng g m shared
 ng g c shared/reloading --export
 ...
+
+## 3. Routes
+
+...bash
+
+ng g m about --route=about --module=app --dry-run
