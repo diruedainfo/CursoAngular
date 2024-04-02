@@ -26,5 +26,10 @@ ng g c shared/reloading --export
 ## 3. Routes
 
 ...bash
-
 ng g m about --route=about --module=app --dry-run
+
+ng g m contact --route=contact --module=app --dry-run
+ng g c contact --type=page --dry-run
+...
+
+
