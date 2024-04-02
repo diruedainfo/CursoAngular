@@ -31,5 +31,7 @@ ng g m about --route=about --module=app --dry-run
 ng g m contact --route=contact --module=app --dry-run
 ng g c contact --type=page --dry-run
 ...
-
+ng g m auth/register --route=auth/register -m=app --dry-run
+ng g c auth/register --type=page --dry-run
+...
 
