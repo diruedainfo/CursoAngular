@@ -17,3 +17,4 @@ ng g c core/title
 ng g c core/footer
 ...
 ng g m home
+ng g c home --type=page --export
