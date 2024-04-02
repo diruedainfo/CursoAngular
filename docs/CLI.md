@@ -10,5 +10,6 @@ npm install @picocss/pico
 ## 2. Modules
 
 ...bash
-
+ng g m core
+ng g c core/header --export
 ...
