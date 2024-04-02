@@ -8,11 +8,10 @@
 </header>
 <main>
   <article>
-<!--    <h3> Working with {{ getAgenciesLength() }} agencies </h3>-->
-    <h3> Working with {{ getTripsLength() }} trips </h3>
-    <ul>
-      <li *ngFor="let trip of trips">
-      <!--<li *ngFor="let agency of agencies">
+    <h3> Working with {{ getAgenciesLength() }} agencies </h3>
+
+<ul>
+    <li *ngFor="let agency of agencies">
 
         <span [ngClass]="agency.status">{{ agency.name }}</span>
         <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital"></ng-container>
@@ -21,7 +20,19 @@
 
 
                 <span *ngIf="agency.range==='Interplanetary'"> ✨ </span>
-        <span *ngIf="agency.range==='Orbital'"> 🌍 </span>-->
+        <span *ngIf="agency.range==='Orbital'"> 🌍 </span>
+    </li>
+</ul>
+  </article>
+
+  <article>
+
+  <h3> Working with {{ getTripsLength() }} trips </h3>
+
+
+    <ul>
+      <li *ngFor="let trip of trips">
+
 
         <span>{{ trip.id }}</span>
         <span>{{ trip.agencyId }}</span>
