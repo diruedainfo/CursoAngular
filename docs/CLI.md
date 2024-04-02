@@ -14,3 +14,6 @@ ng g m core
 ng g c core/header --export
 ng g c core/title
 ...
+ng g c core/footer
+...
+ng g m home
