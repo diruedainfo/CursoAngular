@@ -8,20 +8,43 @@
 </header>
 <main>
   <article>
-    <h3> Working with {{ getAgenciesLength() }} agencies </h3>
+<!--    <h3> Working with {{ getAgenciesLength() }} agencies </h3>-->
+    <h3> Working with {{ getTripsLength() }} trips </h3>
     <ul>
-      <li *ngFor="let agency of agencies">
+      <li *ngFor="let trip of trips">
+      <!--<li *ngFor="let agency of agencies">
+
         <span [ngClass]="agency.status">{{ agency.name }}</span>
         <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital"></ng-container>
         <ng-template #interplanetary> ✨ </ng-template>
         <ng-template #orbital> 🌍 </ng-template>
-        <!--        <span *ngIf="agency.range==='Interplanetary'"> ✨ </span>
+
+
+                <span *ngIf="agency.range==='Interplanetary'"> ✨ </span>
         <span *ngIf="agency.range==='Orbital'"> 🌍 </span>-->
+
+        <span>{{ trip.id }}</span>
+        <span>{{ trip.agencyId }}</span>
+        <span>{{ trip.agencyTripCode }}</span>
+        <span>{{ trip.destination }}</span>
+        <span>{{ trip.places }}</span>
+        <span>{{ trip.startDate }}</span>
+        <span>{{ trip.endDate }}</span>
+        <span>{{ trip.flightPrice }}</span>
+        <span>{{ trip.stayingNightPrice }}</span>
+        <span>{{ trip.kind }}</span>
+        <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
+        <ng-template #withStay> 🪐 </ng-template>
+        <ng-template #tripOnly> 🚚 </ng-template>
+
+        <span [ngClass]="trip.status | lowercase">{{ trip.status }}</span>
+        <span>{{ trip.extraLuggagePricePerKilo }}</span>
+        <span>{{ trip.premiumFoodPrice }}</span>
       </li>
     </ul>
-    <button (click)="reload('agencies')" > ♻ </button>
+    <button (click)="reload('agencies')" > © </button>
   </article>
-  <aside *ngIf="reloading"> ♻ Reloading </aside>
+  <aside *ngIf="reloading"> © Reloading </aside>
 </main>
 <router-outlet></router-outlet>
 <footer>
