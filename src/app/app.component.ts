@@ -6,10 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title = 'Astro Booking';
-  public subtitle = 'Welcome on board';
-  public author = 'Diego Rueda';
-  public authorUrl = 'http://www.google.es';
   public agencies = [
     {
       id: 'space-y',
