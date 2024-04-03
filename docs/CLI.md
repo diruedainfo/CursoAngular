@@ -48,3 +48,6 @@ ng g c shared/components/trips --export --type=lista
 --
 ng g m agencies/agency -m=agencies --route=agency/:id  --dry-run
 ng g c agencies/agency --type=page
+--
+ng g m trips/trip -m=trips --route=trip/:id  --dry-run
+ng g c trips/trip --type=page

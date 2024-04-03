@@ -3,8 +3,10 @@
   <ul>
     <li *ngFor="let trip of trips">
 
+      <a [routerLink]="['/','trips','trip',trip.id]"
+         [ngClass]="trip.status | lowercase">{{ trip.destination }}</a>
 
-      <span>{{ trip.id }}</span>
+      <!--<span>{{ trip.id }}</span>
       <span>{{ trip.agencyId }}</span>
       <span>{{ trip.agencyTripCode }}</span>
       <span>{{ trip.destination }}</span>
@@ -13,7 +15,8 @@
       <span>{{ trip.endDate }}</span>
       <span>{{ trip.flightPrice }}</span>
       <span>{{ trip.stayingNightPrice }}</span>
-      <span>{{ trip.kind }}</span>
+      <span>{{ trip.kind }}</span>-->
+
       <ng-container *ngIf="trip.kind==='WithStay' then withStay; else tripOnly"></ng-container>
       <ng-template #withStay> 🪐 </ng-template>
       <ng-template #tripOnly> 🚚 </ng-template>
