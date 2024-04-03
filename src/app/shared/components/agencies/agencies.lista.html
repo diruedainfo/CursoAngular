@@ -4,7 +4,9 @@
   <ul>
     <li *ngFor="let agency of agencies">
 
-      <span [ngClass]="agency.status">{{ agency.name }}</span>
+      <a [routerLink]="['/','agencies','agency',agency.id]"
+       [ngClass]="agency.status | lowercase">{{ agency.name }}</a>
+
       <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital"></ng-container>
       <ng-template #interplanetary> ✨ </ng-template>
       <ng-template #orbital> 🌍 </ng-template>
