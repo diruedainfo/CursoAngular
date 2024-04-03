@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-register-form',
@@ -24,7 +24,33 @@ export class RegisterForm implements OnInit {
       ]),
       acceptTerms: new FormControl(false, [Validators.requiredTrue]),
 
+    },{
+      // configuración a nivel de formulario
+      validators:[this.passwordMatch]
     });
+  }
+
+  private passwordMatch(form: AbstractControl) : ValidationErrors | null {
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
+    if(!password || !confirmPassword){
+      return {
+        passwordMatch:'No passwords provided',
+      };
+    }
+    if(password.value !== confirmPassword.value){
+      return {
+        passwordMatch:"Passwords don't match",
+      };
+    }
+    return null;
+  }
+
+  public getPasswordMatchMessage(){
+    const errors = this.form.errors;
+    if(!errors) return '';
+    if (errors['passwordMatch']) return errors['passwordMatch'];
+    return '';
   }
 
   ngOnInit(): void {}
@@ -63,8 +89,11 @@ export class RegisterForm implements OnInit {
   }
 
   public onSave(){
-    const contact = this.form.value;
-    console.warn('Send contact message ', contact);
+    // desestructuración
+    const {name, email, password} = this.form.value;
+    // estructuración
+    const register = { name, email, password };
+    console.warn('Send register ', register);
   }
 
 }

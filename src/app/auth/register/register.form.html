@@ -41,6 +41,7 @@
             placeholder="Confirm password"
             [attr.aria-invalid]="hasError('confirmPassword')">
     <small *ngIf="mustShowMessage('confirmPassword')">{{ getErrorMessage('confirmPassword') }}</small>
+    <small>{{ getPasswordMatchMessage() }}</small>
   </div>
 
   <div>
