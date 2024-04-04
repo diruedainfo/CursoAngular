@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {CoreModule} from "./core/core.module";
 import {HomeModule} from "./home/home.module";
 import {SharedModule} from "./shared/shared.module";
+import {FormValidationsService} from "./core/forms/form-validations.service";
 
 @NgModule({
   declarations: [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
+import {FormValidationsService} from "../../core/forms/form-validations.service";
 
 @Component({
   selector: 'app-new-trip-form',
@@ -23,7 +24,7 @@ export class NewTripForm implements OnInit {
       name: '🏍 Virgin Way',
     },
   ]
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, fvs: FormValidationsService) {
     this.form = formBuilder.group({
       agencyId: new FormControl('', [Validators.required]),
       destination: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
@@ -33,37 +34,8 @@ export class NewTripForm implements OnInit {
       flightPrice: new FormControl(1,[Validators.required, Validators.min(1000000), Validators.max(10000000)]),
     },{
       // configuración a nivel de formulario
-      validators:[this.datesMatch]
+      validators:[fvs.datesMatch]
     });
-  }
-
-  private datesMatch(form: AbstractControl) : ValidationErrors | null {
-    const startDate = form.get('startDate');
-    const endDate = form.get('endDate');
-    if(!startDate || !endDate){
-      return {
-        datesMatch:'No dates provided',
-      };
-    }
-
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    const startDateTime = new Date(startDate.value);
-    const endDateTime = new Date(endDate.value);
-
-    if (startDateTime < today) {
-      return {
-        datesMatch: 'Start date cannot be in the past',
-      };
-    }
-
-    if(startDateTime > endDateTime){
-      return {
-        datesMatch:"Start date cannot be greater than end date",
-      };
-    }
-    return null;
   }
 
   public hasError(controlName: string): boolean {
