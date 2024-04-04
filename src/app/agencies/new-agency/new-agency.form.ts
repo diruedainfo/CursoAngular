@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormMessagesService} from "../../core/forms/form-messages.service";
 
 @Component({
   selector: 'app-new-agency-form',
@@ -19,7 +20,8 @@ export class NewAgencyForm implements OnInit {
   ]
 
   public statuses = ['Active', 'Pending'];
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder,
+              public fms: FormMessagesService) {
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),
@@ -28,37 +30,17 @@ export class NewAgencyForm implements OnInit {
   }
 
   public hasError(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.invalid;
+    return this.fms.hasError(this.form, controlName);
   }
 
   public mustShowMessage(controlName: string): boolean {
-    const control = this.getControl(controlName);
-    if (!control) return false;
-    return control.invalid && control.touched;
+    return this.fms.mustShowMessage(this.form, controlName);
   }
 
   public getErrorMessage(controlName: string): string {
-    const control = this.getControl(controlName);
-    if (!control) return 'no existe';
-    if(!control.errors) return '';
-    const errors = control.errors;
-    let errorMessage = '';
-    errorMessage += errors['required'] ? '🔥 Field is required' : '';
-    errorMessage += errors['email'] ? '🔥 Should be an email address' : '';
-    errorMessage += errors['minlength']
-      ? `🔥 More than ${errors['minlength'].requiredLength} chars`
-      : '';
-    errorMessage += errors['maxlength']
-      ? `🔥 Less than ${errors['maxlength'].requiredLength} chars`
-      : '';
-    return errorMessage;
+    return this.fms.getErrorMessage(this.form, controlName);
   }
 
-  public getControl(controlName: string): AbstractControl | null {
-    return this.form.get(controlName);
-  }
   ngOnInit(): void {
   }
 
