@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {FormValidationsService} from "../../core/forms/form-validations.service";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
+import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
 
 @Component({
   selector: 'app-new-trip-form',
@@ -27,7 +28,8 @@ export class NewTripForm implements OnInit {
   ]
   constructor(formBuilder: FormBuilder,
               fvs: FormValidationsService,
-              public fms: FormMessagesService) {
+              public fms: FormMessagesService,
+              public fcus: FormCommonUtilitiesService) {
     this.form = formBuilder.group({
       agencyId: new FormControl('',  [Validators.required]),
       destination: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
@@ -72,7 +74,7 @@ export class NewTripForm implements OnInit {
   onSave(){
     // desestructuración
     const { agencyId, destination, places, startDate, endDate, flightPrice } = this.form.value;
-    const id = this.getDashId(agencyId);
+    const id = this.fcus.getDashId(agencyId);
     // estructuración
     const newTripData = { id, destination, places, startDate, endDate, flightPrice }
     console.warn('Send trip data ', newTripData);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
+import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
 
 @Component({
   selector: 'app-new-agency-form',
@@ -21,7 +22,8 @@ export class NewAgencyForm implements OnInit {
 
   public statuses = ['Active', 'Pending'];
   constructor(formBuilder: FormBuilder,
-              public fms: FormMessagesService) {
+              public fms: FormMessagesService,
+              public fcus: FormCommonUtilitiesService) {
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),
@@ -47,14 +49,10 @@ export class NewAgencyForm implements OnInit {
   onSave(){
     // desestructuración
     const { name, range, status } = this.form.value;
-    const id = this.getDashId(name);
+    const id = this.fcus.getDashId(name);
     // estructuración
     const newAgencyData = { id, name, range, status }
     console.warn('Send agency data ', newAgencyData);
-  }
-
-  private getDashId(str: string): string {
-    return str.toLocaleLowerCase().replace(/ /g, '-');
   }
 
 }
