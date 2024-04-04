@@ -63,7 +63,6 @@ export class NewAgencyForm implements OnInit {
   }
 
   onSave(){
-<<<<<<< HEAD
     // desestructuración
     const { name, range, status } = this.form.value;
     const id = this.getDashId(name);
@@ -75,9 +74,5 @@ export class NewAgencyForm implements OnInit {
   private getDashId(str: string): string {
     return str.toLocaleLowerCase().replace(/ /g, '-');
   }
-=======
-    console.warn('Send agency data ', this.form.value);
-  }
 
->>>>>>> origin/main
 }
