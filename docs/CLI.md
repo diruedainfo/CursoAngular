@@ -65,3 +65,7 @@ ng g m agencies/new-agency -m=agencies --route=agency/new
 ng g c agencies/new-agency --type=page
 ng g c agencies/new-agency --type=form
 ...
+ng g m trips/new-trip -m=trips --route=trip/new
+ng g c trips/new-trip --type=page
+ng g c trips/new-trip --type=form
+...
