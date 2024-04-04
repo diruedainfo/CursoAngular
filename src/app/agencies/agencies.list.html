@@ -1,20 +1,2 @@
+<a routerLink="agency/new">Add a new Agency</a>
 <app-agencies-lista></app-agencies-lista>
-
-<!--<article>
-  <h3> Working with {{ getAgenciesLength() }} agencies </h3>
-
-  <ul>
-    <li *ngFor="let agency of agencies">
-
-      <span [ngClass]="agency.status">{{ agency.name }}</span>
-      <ng-container *ngIf="agency.range==='Interplanetary' then interplanetary; else orbital"></ng-container>
-      <ng-template #interplanetary> ✨ </ng-template>
-      <ng-template #orbital> 🌍 </ng-template>
-
-      <span *ngIf="agency.range==='Interplanetary'"> ✨ </span>
-      <span *ngIf="agency.range==='Orbital'"> 🌍 </span>
-    </li>
-  </ul>
-  <button (click)="reload('agencies')" > © </button>
-  <aside *ngIf="reloading"> <app-reloading></app-reloading> </aside>
-</article>-->
