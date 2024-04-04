@@ -12,15 +12,15 @@ export class NewTripForm implements OnInit {
   public agencies = [
     {
       id: 'space-y',
-      name: 'Space Y',
+      name: '🛴 Space Y',
     },
     {
       id: 'green-origin',
-      name: 'Green Origin',
+      name: '🏴‍☠️ Green Origin',
     },
     {
       id: 'virgin-way',
-      name: 'Virgin Way',
+      name: '🏍 Virgin Way',
     },
   ]
   constructor(formBuilder: FormBuilder) {

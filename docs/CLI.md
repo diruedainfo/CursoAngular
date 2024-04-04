@@ -69,3 +69,10 @@ ng g m trips/new-trip -m=trips --route=trip/new
 ng g c trips/new-trip --type=page
 ng g c trips/new-trip --type=form
 ...
+
+## 5. Services
+
+...bash
+ng g core/forms/form-validations
+ng g core/forms/form-messages
+...
