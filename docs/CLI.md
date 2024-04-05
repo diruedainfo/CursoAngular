@@ -89,3 +89,7 @@ ng g s core/api/agencies --dry-run
 ó
 ng g class core/api/agencies --type=api --dry-run    USAMOS ESTA OPCIÓN
 ng g class core/api/id-name --type=api --dry-run
+
+...
+
+
