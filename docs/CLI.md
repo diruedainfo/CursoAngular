@@ -78,3 +78,6 @@ ng g s core/forms/form-messages
 ...
 ng g s core/forms/form-common-utilities
 ...
+
+
+ng g class core/forms/form --type=base --dry-run

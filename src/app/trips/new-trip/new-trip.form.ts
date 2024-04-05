@@ -3,14 +3,14 @@ import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, 
 import {FormValidationsService} from "../../core/forms/form-validations.service";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
 import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
+import {FormBase} from "../../core/forms/form.base";
 
 @Component({
   selector: 'app-new-trip-form',
   templateUrl: './new-trip.form.html',
   styleUrls: ['./new-trip.form.scss']
 })
-export class NewTripForm implements OnInit {
-  public form: FormGroup;
+export class NewTripForm extends FormBase implements OnInit {
 
   public agencies = [
     {
@@ -28,8 +28,9 @@ export class NewTripForm implements OnInit {
   ]
   constructor(formBuilder: FormBuilder,
               fvs: FormValidationsService,
-              public fms: FormMessagesService,
-              public fcus: FormCommonUtilitiesService) {
+              fms: FormMessagesService,
+              private fcus: FormCommonUtilitiesService) {
+    super(fms);
     this.form = formBuilder.group({
       agencyId: new FormControl('',  [Validators.required]),
       destination: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
@@ -43,14 +44,6 @@ export class NewTripForm implements OnInit {
     });
   }
 
-  public mustShowMessage(controlName: string): boolean {
-    return this.fms.mustShowMessage(this.form, controlName);
-  }
-
-  public getErrorMessage(controlName: string): string {
-    return this.fms.getErrorMessage(this.form, controlName);
-  }
-
 
   public getDatesMatchMessage(){
     const errors = this.form.errors;
@@ -59,14 +52,6 @@ export class NewTripForm implements OnInit {
     return '';
   }
 
-
-  public hasError(controlName: string): boolean {
-    return this.fms.hasError(this.form, controlName);
-  }
-
-  public getControl(controlName: string): AbstractControl | null {
-    return this.form.get(controlName);
-  }
 
   ngOnInit(): void {
   }

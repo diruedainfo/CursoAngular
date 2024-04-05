@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
 import {FormValidationsService} from "../../core/forms/form-validations.service";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
+import {FormBase} from "../../core/forms/form.base";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register.form.html',
   styleUrls: ['./register.form.scss']
 })
-export class RegisterForm implements OnInit {
-  public form : FormGroup;
+export class RegisterForm extends FormBase implements OnInit {
   constructor(formBuilder: FormBuilder, fvs: FormValidationsService,
-              public fms: FormMessagesService) {
-
+              fms: FormMessagesService) {
+    super(fms);
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -46,18 +46,6 @@ export class RegisterForm implements OnInit {
   }*/
 
   ngOnInit(): void {}
-
-  public hasError(controlName: string): boolean {
-    return this.fms.hasError(this.form, controlName);
-  }
-
-  public mustShowMessage(controlName: string): boolean {
-    return this.fms.mustShowMessage(this.form, controlName);
-  }
-
-  public getErrorMessage(controlName: string): string {
-    return this.fms.getErrorMessage(this.form, controlName);
-  }
 
   public onSave(){
     // desestructuración

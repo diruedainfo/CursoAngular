@@ -19,7 +19,6 @@ export class FormValidationsService {
       };
     }
     if(password.value !== confirmPassword.value){
-      console.log("no son iguals");
       return {
         passwordMatch:"Passwords don't match",
       };
