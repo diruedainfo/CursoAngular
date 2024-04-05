@@ -3,6 +3,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
 import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
 import {FormBase} from "../../core/forms/form.base";
+import {IdName} from "../../core/api/id-name.interface";
 
 @Component({
   selector: 'app-new-agency-form',
@@ -11,7 +12,7 @@ import {FormBase} from "../../core/forms/form.base";
 })
 export class NewAgencyForm extends FormBase implements OnInit {
 
-  public ranges = [
+  public ranges : IdName[] = [
     { id: 'Orbital', name: '🌍 Orbiting around the earth'},
     {
       id: 'Interplanetary',

@@ -75,9 +75,12 @@ ng g c trips/new-trip --type=form
 ...bash
 ng g s core/forms/form-validations
 ng g s core/forms/form-messages
-...
 ng g s core/forms/form-common-utilities
-...
-
 
 ng g class core/forms/form --type=base --dry-run
+
+
+
+ng g interface core/api/agency --type=interface
+ng g i core/api/id-name --type=interface
+...
