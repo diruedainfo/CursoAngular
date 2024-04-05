@@ -4,6 +4,7 @@ import {FormMessagesService} from "../../core/forms/form-messages.service";
 import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
 import {FormBase} from "../../core/forms/form.base";
 import {IdName} from "../../core/api/id-name.interface";
+import {IdNameApi} from "../../core/api/id-name.api";
 
 @Component({
   selector: 'app-new-agency-form',
@@ -12,20 +13,15 @@ import {IdName} from "../../core/api/id-name.interface";
 })
 export class NewAgencyForm extends FormBase implements OnInit {
 
-  public ranges : IdName[] = [
-    { id: 'Orbital', name: '🌍 Orbiting around the earth'},
-    {
-      id: 'Interplanetary',
-      name: '☀ To the moon and other planets'
-    },
-    { id: 'Interstellar', name: '⭐ Traveling to other stars'},
-  ]
-
-  public statuses = ['Active', 'Pending'];
+  public ranges : IdName[];
+  public statuses;
   constructor(formBuilder: FormBuilder,
               fms: FormMessagesService,
-              private fcus: FormCommonUtilitiesService) {
+              private fcus: FormCommonUtilitiesService,
+              idNameApi: IdNameApi) {
     super(fms);
+    this.ranges = idNameApi.getRanges();
+    this.statuses = idNameApi.getStatuses();
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),

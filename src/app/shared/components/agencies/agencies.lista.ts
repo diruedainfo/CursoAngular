@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Agency} from "../../../core/api/agency.interface";
+import {AgenciesApi} from "../../../core/api/agencies.api";
 
 @Component({
   selector: 'app-agencies-lista',
@@ -9,26 +10,12 @@ import {Agency} from "../../../core/api/agency.interface";
 export class AgenciesLista implements OnInit {
   public reloading = false;
 
-  public agencies : Agency[] = [
-    {
-      id: 'space-y',
-      name: 'Space Y',
-      range: 'Interplanetary',
-      status: 'Active',
-    },
-    {
-      id: 'green-origin',
-      name: 'Green Origin',
-      range: 'Orbital',
-      status: 'Active',
-    },
-    {
-      id: 'virgin-way',
-      name: 'Virgin Way',
-      range: 'Orbital',
-      status: 'Pending',
-    },
-  ]
+  public agencies : Agency[];
+  constructor(
+    agenciesApi: AgenciesApi
+  ) {
+    this.agencies = agenciesApi.getAll();
+  }
   public getAgenciesLength() {
     return this.agencies.length;
   }
