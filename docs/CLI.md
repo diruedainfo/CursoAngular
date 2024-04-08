@@ -104,3 +104,6 @@ ng g class core/api/trips --type=api --dry-run    USAMOS ESTA OPCIÓN
 GENERAMOS UNA VISTA PARA agency.page.ts
 ng g c agencies/agency --type=view
 
+GENERAMOS UNA VISTA PARA trip.page.ts
+ng g c trips/trip --type=view
+
