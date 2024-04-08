@@ -87,9 +87,16 @@ ng g i core/api/id-name --type=interface
 
 ng g s core/api/agencies --dry-run
 ó
-ng g class core/api/agencies --type=api --dry-run    USAMOS ESTA OPCIÓN
+ng g class core/api/agencies --type=api --dry-run   USAMOS ESTA OPCIÓN
 ng g class core/api/id-name --type=api --dry-run
 
 ...
 
+ng g interface core/api/trip --type=interface --dry-run
 
+...
+
+ng g class core/api/trips --type=api --dry-run    USAMOS ESTA OPCIÓN
+
+
+## 6. Containers

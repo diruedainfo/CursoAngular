@@ -6,6 +6,8 @@ import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities
 import {FormBase} from "../../core/forms/form.base";
 import {Agency} from "../../core/api/agency.interface";
 import {AgenciesApi} from "../../core/api/agencies.api";
+import {Trip} from "../../core/api/trip.interface";
+import {TripsApi} from "../../core/api/trips.api";
 
 @Component({
   selector: 'app-new-trip-form',
@@ -20,7 +22,8 @@ export class NewTripForm extends FormBase implements OnInit {
     fvs: FormValidationsService,
     fms: FormMessagesService,
     private fcus: FormCommonUtilitiesService,
-    agenciesApi: AgenciesApi
+    agenciesApi: AgenciesApi,
+    private tripsApi: TripsApi
   ) {
     super(fms);
     this.agencies = agenciesApi.getAll();
@@ -52,10 +55,34 @@ export class NewTripForm extends FormBase implements OnInit {
   onSave(){
     // desestructuración
     const { agencyId, destination, places, startDate, endDate, flightPrice } = this.form.value;
-    const id = this.fcus.getDashId(agencyId);
+    const id = this.fcus.getDashId(destination);
+
+    //datos sin asignar
+    const agencyTripCode = 'code1';
+    const stayingNightPrice = 10000;
+    const kind = 'WithStay';
+    const status = 'Waiting';
+    const extraLuggagePricePerKilo = 50000;
+    const premiumFoodPrice = 0;
+
     // estructuración
-    const newTripData = { id, destination, places, startDate, endDate, flightPrice }
+    const newTripData: Trip = { id,
+      agencyId,
+      agencyTripCode,
+      destination,
+      places,
+      startDate,
+      endDate,
+      flightPrice,
+      stayingNightPrice,
+      kind,
+      status,
+      extraLuggagePricePerKilo,
+      premiumFoodPrice}
+
     console.warn('Send trip data ', newTripData);
+
+    this.tripsApi.post(newTripData);
   }
 
   private getDashId(str: string): string {
