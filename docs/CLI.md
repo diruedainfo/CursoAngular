@@ -107,3 +107,10 @@ ng g c agencies/agency --type=view
 GENERAMOS UNA VISTA PARA trip.page.ts
 ng g c trips/trip --type=view
 
+## 7. Http
+
+...bash
+npm i -D json-server json-server-auth
+npm run api
+...
+
