@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TripsRoutingModule } from './trips-routing.module';
-import { TripsList } from './trips.list';
+import { TripsPage } from './trips.page';
 import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
-    TripsList
+    TripsPage
   ],
   exports: [
-    TripsList
+    TripsPage
   ],
   imports: [
     CommonModule,

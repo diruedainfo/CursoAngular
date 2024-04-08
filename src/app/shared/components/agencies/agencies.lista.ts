@@ -23,6 +23,7 @@ export class AgenciesLista implements OnInit {
   public onReloadClick(list:string) {
     this.reloading = true;
     console.log('Reloading...' + list);
+
     this.reload.emit();
   }
   ngOnInit(): void {

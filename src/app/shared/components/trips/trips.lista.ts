@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Agency} from "../../../core/api/agency.interface";
 import {Trip} from "../../../core/api/trip.interface";
 import {AgenciesApi} from "../../../core/api/agencies.api";
@@ -12,20 +12,21 @@ import {TripsApi} from "../../../core/api/trips.api";
 export class TripsLista implements OnInit {
   public reloading = false;
 
-  public trips : Trip[];
+  @Input()
+  public trips : Trip[] = [];
+  @Output()
+  private reload = new EventEmitter();
 
-  constructor(
-    tripsApi: TripsApi
-  ) {
-    this.trips = tripsApi.getAll();
-  }
+
   public getTripsLength() {
     return this.trips.length;
   }
 
-  public reload(list:string) {
+  public onReloadClick(list:string) {
     this.reloading = true;
     console.log('Reloading...' + list);
+
+    this.reload.emit();
   }
 
   ngOnInit(): void {

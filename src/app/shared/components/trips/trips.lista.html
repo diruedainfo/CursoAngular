@@ -24,6 +24,6 @@
       <span [ngClass]="trip.status | lowercase">{{ trip.status }}</span>
     </li>
   </ul>
-  <button (click)="reload('trips')" > © </button>
+  <button (click)="onReloadClick('trips')" > © </button>
   <aside *ngIf="reloading"> <app-reloading></app-reloading> </aside>
 </article>
