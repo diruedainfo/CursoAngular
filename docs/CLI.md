@@ -100,3 +100,7 @@ ng g class core/api/trips --type=api --dry-run    USAMOS ESTA OPCIÓN
 
 
 ## 6. Containers
+
+GENERAMOS UNA VISTA PARA agency.page.ts
+ng g c agencies/agency --type=view
+
