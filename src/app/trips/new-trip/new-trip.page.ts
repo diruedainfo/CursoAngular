@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Agency} from "../../core/api/agency.interface";
+import {Trip} from "../../core/api/trip.interface";
+import {AgenciesApi} from "../../core/api/agencies.api";
+import {TripsApi} from "../../core/api/trips.api";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-new-trip',
@@ -7,7 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewTripPage implements OnInit {
 
-  constructor() { }
+  public agencies! : Agency[];
+  constructor(
+    agenciesApi: AgenciesApi,
+    private tripsApi: TripsApi
+  ) {
+    this.agencies = agenciesApi.getAll();
+  }
+
+  onSave(newTripData: Trip){
+    this.tripsApi.post(newTripData);
+  }
 
   ngOnInit(): void {
   }

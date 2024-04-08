@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormControl, Validators} from "@angular/forms";
 import {FormValidationsService} from "../../core/forms/form-validations.service";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
@@ -16,17 +16,21 @@ import {TripsApi} from "../../core/api/trips.api";
 })
 export class NewTripForm extends FormBase implements OnInit {
 
-  public agencies : Agency[];
+  @Input()
+  public agencies : Agency[] = [];
+
+  @Output()
+  public save = new EventEmitter<Trip>();
   constructor(
     formBuilder: FormBuilder,
     fvs: FormValidationsService,
     fms: FormMessagesService,
     private fcus: FormCommonUtilitiesService,
-    agenciesApi: AgenciesApi,
-    private tripsApi: TripsApi
+    //agenciesApi: AgenciesApi,
+    //private tripsApi: TripsApi
   ) {
     super(fms);
-    this.agencies = agenciesApi.getAll();
+    //this.agencies = agenciesApi.getAll();
     this.form = formBuilder.group({
       agencyId: new FormControl('',  [Validators.required]),
       destination: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
@@ -82,7 +86,8 @@ export class NewTripForm extends FormBase implements OnInit {
 
     console.warn('Send trip data ', newTripData);
 
-    this.tripsApi.post(newTripData);
+    this.save.emit(newTripData);
+    //this.tripsApi.post(newTripData);
   }
 
   private getDashId(str: string): string {
