@@ -61,6 +61,7 @@
     <small *ngIf="mustShowMessage('flightPrice')">{{ getErrorMessage('flightPrice') }}</small>
   </div>
 
-  <button [disabled]="form.invalid"
-          (click)="onSave()">Save</button>
+  <button type="submit"
+          [disabled]="form.invalid"
+          (click)="onSave()">Send new trip data</button>
 </form>

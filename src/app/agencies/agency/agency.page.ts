@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Agency} from "../../core/api/agency.interface";
-import {AgenciesApi} from "../../core/api/agencies.api";
+import { ActivatedRoute } from '@angular/router';
+import { AgenciesApi } from 'src/app/core/api/agencies.api';
+import { Agency } from 'src/app/core/api/agency.interface';
 
 @Component({
-  selector: 'app-agency',
   templateUrl: './agency.page.html',
-  styleUrls: ['./agency.page.scss']
+  styleUrls: ['./agency.page.scss'],
 })
 export class AgencyPage implements OnInit {
-
   public agencyId: string;
   public agency?: Agency;
 
-  constructor(route:ActivatedRoute, agenciesApi: AgenciesApi) {
+  constructor(route: ActivatedRoute, agenciesApi: AgenciesApi) {
     this.agencyId = route.snapshot.paramMap.get('id') || '';
-    this.agency = agenciesApi.getById(this.agencyId);
+    agenciesApi.getById$(this.agencyId).subscribe((data) => {
+      this.agency = data;
+    });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

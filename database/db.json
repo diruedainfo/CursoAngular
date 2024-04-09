@@ -5,6 +5,17 @@
       "password": "$2a$10$XmhheMN/c0uDF.bs2cJzlO4GJUD51ybHwv4rnY5O5517DsEZ6Snaa",
       "name": "Alberto Basalo",
       "id": 1
+    },
+    {
+      "email": "diego.rueda@igmweb.com",
+      "password": "$2a$10$cCMHJb0hOTGtS4xjCIsMu.xprBOKWbXlGsXNlBX1ZKxi2p3GGT8Ju",
+      "id": 2
+    },
+    {
+      "email": "diego@ja.es",
+      "password": "$2a$10$Qms7mh7YVlzPV2gXaoRQyOyP8CCgpMUl2mEOjM96yL0cPqo7XuOl2",
+      "name": "Diego",
+      "id": 3
     }
   ],
   "bookings": [],
@@ -38,6 +49,18 @@
       "name": "monforte",
       "range": "Interplanetary",
       "status": "Active"
+    },
+    {
+      "id": "prueba",
+      "name": "prueba",
+      "range": "Orbital",
+      "status": "Active"
+    },
+    {
+      "id": "prueba-agencia",
+      "name": "Prueba agencia",
+      "range": "Interplanetary",
+      "status": "Pending"
     }
   ],
   "trips": [

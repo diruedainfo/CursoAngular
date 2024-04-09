@@ -1,30 +1,26 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReloadingComponent } from './reloading/reloading.component';
-import { AgenciesLista } from './components/agencies/agencies.lista';
-import { TripsLista } from './components/trips/trips.lista';
-import {Router, RouterModule} from "@angular/router";
-import {ReactiveFormsModule} from "@angular/forms";
-
-
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ReloadingComponent } from './components/reloading/reloading.component';
+import { EmailControl } from './controls/email/email.control';
+import { TemplateControl } from './controls/template/template.control';
+import { SearchControl } from './controls/search/search.control';
+import {AgenciesLista} from "./components/agencies/agencies.lista";
+import {TripsLista} from "./components/trips/trips.lista";
 
 @NgModule({
-  declarations: [
-    ReloadingComponent,
-    AgenciesLista,
-    TripsLista
-  ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-  ],
+  declarations: [ReloadingComponent, AgenciesLista, TripsLista, EmailControl, TemplateControl, SearchControl],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [
     RouterModule,
     ReactiveFormsModule,
     ReloadingComponent,
     AgenciesLista,
-    TripsLista
-  ]
+    TripsLista,
+    EmailControl,
+    TemplateControl,
+    SearchControl,
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

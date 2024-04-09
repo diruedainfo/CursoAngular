@@ -1,20 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from "@angular/forms";
-import {FormMessagesService} from "../../core/forms/form-messages.service";
-import {FormBase} from "../../core/forms/form.base";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
+import { FormValidationsService } from 'src/app/core/forms/form-validations.service';
+import { FormBase } from 'src/app/core/forms/form.base';
+import { TransformationsService } from 'src/app/core/utils/transformations.service';
+import { Login } from '../api/login.interface';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login.form.html',
-  styleUrls: ['./login.form.scss']
+  styleUrls: ['./login.form.scss'],
 })
 export class LoginForm extends FormBase implements OnInit {
-  constructor(formBuilder: FormBuilder,
-              fms: FormMessagesService) {
+  @Output() login = new EventEmitter<Login>();
+
+  constructor(
+    formBuilder: FormBuilder,
+    fvs: FormValidationsService,
+    fms: FormMessagesService,
+    private ts: TransformationsService
+  ) {
     super(fms);
-    this.form = formBuilder.group({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
+    super.form = formBuilder.group({
+      email: new FormControl('albertobasalo@hotmail.com'),
+      password: new FormControl('1234', [
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(10),
@@ -22,14 +31,11 @@ export class LoginForm extends FormBase implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
-
-  public onSave(){
-    // desestructuración
-    const {email, password} = this.form.value;
-    // estructuración
-    const login = {email, password };
-    console.warn('Send login ', login);
+  public onSave() {
+    const { email, password } = this.form.value;
+    const login: Login = { email: email.email, password };
+    console.warn('Send login', login);
+    this.login.emit(login);
   }
-
+  ngOnInit(): void {}
 }

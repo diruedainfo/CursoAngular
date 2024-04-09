@@ -1,2 +1,21 @@
-<a routerLink="agency/new">Add a new Agency</a>
-<app-agencies-lista [agencies]="agencies" (reload)="onReload()" ></app-agencies-lista>
+<script src="../shared/components/agencies/agencies.lista.ts"></script>
+<script src="agencies.page.ts"></script>
+<nav>
+  <a role="button"
+     routerLink="agency/new">✨ Add a new agency</a>
+</nav>
+<br>
+<app-search (search)="onSearch($event)"></app-search>
+
+<app-agencies-lista *ngIf="(agencies$ | async) as agencies ; else waiting "
+                   [agencies]="agencies"
+                   (reload)="onReload()">
+</app-agencies-lista>
+
+<!--<app-trips-lista *ngIf="(trips$ | async) as trips"
+                [trips]="trips">
+</app-trips-lista>-->
+
+<ng-template #waiting>
+  <h4>Waiting...</h4>
+</ng-template>

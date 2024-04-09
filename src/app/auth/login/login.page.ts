@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { tap } from 'rxjs';
+import { AuthAPI } from '../api/auth.api';
+import { Login } from '../api/login.interface';
 
 @Component({
-  selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss']
+  styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  constructor(private authApi: AuthAPI) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onLogin(login: Login) {
+    this.authApi
+      .login$(login)
+      .pipe(tap((response) => console.warn(response)))
+      .subscribe();
   }
-
 }

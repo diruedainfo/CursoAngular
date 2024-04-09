@@ -1,4 +1,11 @@
-<a routerLink="trip/new">Add a new Trip</a>
-<app-trips-lista
-  [trips]="trips"
-  (reload)="onReload()"></app-trips-lista>
+<nav>
+  <a role="button"
+     routerLink="trip/new">✨ Add a new trip</a>
+</nav>
+<app-trips-lista *ngIf="(trips$ | async) as trips ; else waiting "
+                 [trips]="trips"
+                 (reload)="onReload()"></app-trips-lista>
+
+<ng-template #waiting>
+  <h4>Waiting...</h4>
+</ng-template>

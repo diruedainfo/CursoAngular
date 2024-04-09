@@ -1,25 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import {TripsApi} from "../core/api/trips.api";
+import {Observable} from "rxjs";
 import {Trip} from "../core/api/trip.interface";
+import {TripsApi} from "../core/api/trips.api";
 
 @Component({
-  selector: 'app-trips-list',
   templateUrl: './trips.page.html',
-  styleUrls: ['./trips.page.scss']
+  styleUrls: ['./trips.page.scss'],
 })
 export class TripsPage implements OnInit {
-  public trips!: Trip[];
-  constructor(
-    private tripsApi: TripsApi
-  ) {
-    this.trips = tripsApi.getAll();
+  public trips$: Observable<Trip[]>;
+
+  constructor(private tripsApi: TripsApi) {
+    this.trips$ = this.tripsApi.getAll$();
   }
 
-  onReload() {
-    this.trips = this.tripsApi.getAll();
+  public onReload() {
+    this.trips$ = this.tripsApi.getAll$();
   }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
+

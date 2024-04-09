@@ -1,11 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, Validators} from "@angular/forms";
 import {FormMessagesService} from "../../core/forms/form-messages.service";
 import {FormCommonUtilitiesService} from "../../core/forms/form-common-utilities.service";
 import {FormBase} from "../../core/forms/form.base";
 import {IdName} from "../../core/api/id-name.interface";
-import {IdNameApi} from "../../core/api/id-name.api";
-import {AgenciesApi} from "../../core/api/agencies.api";
 import {Agency} from "../../core/api/agency.interface";
 
 @Component({
@@ -30,6 +28,7 @@ export class NewAgencyForm extends FormBase implements OnInit {
 
   ) {
     super(fms);
+
     this.form = formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
       range: new FormControl('', [Validators.required]),

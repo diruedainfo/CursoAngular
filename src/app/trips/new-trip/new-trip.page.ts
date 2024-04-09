@@ -1,30 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {Agency} from "../../core/api/agency.interface";
-import {Trip} from "../../core/api/trip.interface";
-import {AgenciesApi} from "../../core/api/agencies.api";
-import {TripsApi} from "../../core/api/trips.api";
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { AgenciesApi } from 'src/app/core/api/agencies.api';
+import { Agency } from 'src/app/core/api/agency.interface';
+import { Trip } from 'src/app/core/api/trip.interface';
+import { TripsApi } from 'src/app/core/api/trips.api';
 
 @Component({
-  selector: 'app-new-trip',
   templateUrl: './new-trip.page.html',
-  styleUrls: ['./new-trip.page.scss']
+  styleUrls: ['./new-trip.page.scss'],
 })
 export class NewTripPage implements OnInit {
+  public agencies$: Observable<Agency[]>;
 
-  public agencies! : Agency[];
-  constructor(
-    agenciesApi: AgenciesApi,
-    private tripsApi: TripsApi
-  ) {
-    this.agencies = agenciesApi.getAll();
+  constructor(agenciesApi: AgenciesApi, private tripsApi: TripsApi) {
+    this.agencies$ = agenciesApi.getAll$();
   }
 
-  onSave(newTripData: Trip){
-    this.tripsApi.post(newTripData);
+  public onSave(newTrip: Partial<Trip>) {
+    this.tripsApi.post$(newTrip).subscribe();
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

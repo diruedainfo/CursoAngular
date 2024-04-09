@@ -1,35 +1,38 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Agency} from "../../../core/api/agency.interface";
-import {Trip} from "../../../core/api/trip.interface";
-import {AgenciesApi} from "../../../core/api/agencies.api";
-import {TripsApi} from "../../../core/api/trips.api";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Trip } from 'src/app/core/api/trip.interface';
 
 @Component({
   selector: 'app-trips-lista',
   templateUrl: './trips.lista.html',
-  styleUrls: ['./trips.lista.scss']
+  styleUrls: ['./trips.lista.scss'],
 })
 export class TripsLista implements OnInit {
+  @Input() public trips: Trip[] = [];
+  @Output() private reload = new EventEmitter();
+
   public reloading = false;
 
-  @Input()
-  public trips : Trip[] = [];
-  @Output()
-  private reload = new EventEmitter();
-
-
-  public getTripsLength() {
-    return this.trips.length;
-  }
-
-  public onReloadClick(list:string) {
+  public onReloadClick(list: string) {
     this.reloading = true;
     console.log('Reloading...' + list);
-
     this.reload.emit();
   }
 
-  ngOnInit(): void {
+  public getAgenciesLength() {
+    return this.trips.length;
+  }
+  public getClassForStatus(status: string) {
+    if (status === 'Confirmed') {
+      return 'green';
+    }
+    return 'orange';
   }
 
+  public getClassForPlaces(places: number) {
+    if (places === 0) return 'sold-out';
+    if (places < 8) return 'few-places';
+    return '';
+  }
+
+  ngOnInit(): void {}
 }
