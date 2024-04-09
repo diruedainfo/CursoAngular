@@ -114,3 +114,9 @@ npm i -D json-server json-server-auth
 npm run api
 ...
 
+CRUD GENÉRICO
+ng g class core/api/crud --type=api --dry-run
+ESTO GENERA UNA CLASE -> src/app/core/api/crud.api.ts
+
+## 8. rx-pro
+
