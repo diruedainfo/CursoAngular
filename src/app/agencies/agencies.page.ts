@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, map, Observable, switchMap } from 'rxjs';
+import {BehaviorSubject, map, Observable, switchMap} from 'rxjs';
 import { AgenciesApi } from '../core/api/agencies.api';
 import { Agency } from '../core/api/agency.interface';
 import { Trip } from '../core/api/trip.interface';
@@ -12,9 +12,13 @@ import { TripsApi } from '../core/api/trips.api';
   styleUrls: ['./agencies.page.scss'],
 })
 export class AgenciesPage implements OnInit {
+  // public agencies!: Agency[];
   public agencies$: Observable<Agency[]>;
   public trips$!: Observable<Trip[]>;
   private search$: BehaviorSubject<string> = new BehaviorSubject('');
+
+  //
+  public error: boolean = false;
 
   constructor(
     private agenciesApi: AgenciesApi,

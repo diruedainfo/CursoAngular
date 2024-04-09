@@ -123,6 +123,21 @@
       "status": "Waiting",
       "extraLuggagePricePerKilo": 0,
       "premiumFoodPrice": 1000
+    },
+    {
+      "id": "al-ladito",
+      "agencyId": "prueba-agencia",
+      "agencyTripCode": "code1",
+      "destination": "Al ladito",
+      "places": 1,
+      "startDate": "2024-04-09",
+      "endDate": "2024-04-19",
+      "flightPrice": 1000002,
+      "stayingNightPrice": 10000,
+      "kind": "WithStay",
+      "status": "Waiting",
+      "extraLuggagePricePerKilo": 50000,
+      "premiumFoodPrice": 0
     }
   ]
 }
