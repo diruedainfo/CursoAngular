@@ -149,3 +149,6 @@ ng g c bookings/new-booking --type=form --dry-run
 ...bash
 ng g c shared/controls/email -- type control --export true
 ...
+CONTROL GENÉRICO PARA TEXTOS
+ng g c shared/controls/template --type control --export true
+...

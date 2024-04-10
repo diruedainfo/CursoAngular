@@ -20,6 +20,7 @@ import { FormMessagesService } from 'src/app/core/forms/form-messages.service';
   ],
 })
 export class TemplateControl implements OnInit, ControlValueAccessor {
+
   @Input() public form!: FormGroup;
   @Input() public formControlName: string = '';
   @Input() public inputType: string = 'text';
@@ -54,6 +55,7 @@ export class TemplateControl implements OnInit, ControlValueAccessor {
     this.changeCallBack(this.value);
     this.touchedCallBack();
   }
+
 
   public writeValue(value: any): void {
     this.value = value;
