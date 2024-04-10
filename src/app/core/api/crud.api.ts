@@ -3,7 +3,7 @@ import { catchError, Observable, of, pipe, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StatusStore } from './status.store';
 
-// Clase abstracta Base CrudApi
+// Clase abstracta Base CrudApi modificada
 export abstract class CrudApi<ApiType> {
   protected url = environment.apiUrl + this.endPoint + '/';
 

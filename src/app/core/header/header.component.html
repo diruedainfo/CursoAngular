@@ -9,6 +9,12 @@
     </li>
   </ul>
 
+  <span>
+    <span *ngIf="isWorking"> 👷‍♂️ </span>
+    <span *ngIf="!isWorking"> 💤️ </span>
+    <span *ngIf="hasError"> 💣 {{ mensaje }} </span>
+  </span>
+
   <ul>
     <li>
       <a routerLink="/agencies"> Agencies </a>
