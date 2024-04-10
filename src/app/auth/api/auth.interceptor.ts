@@ -4,13 +4,14 @@ import {
   HttpInterceptor,
   HttpRequest,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { AuthAPI } from './auth.api';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {AuthAPI} from './auth.api';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private authApi: AuthAPI) {}
+  constructor(private authApi: AuthAPI) {
+  }
 
   public intercept(
     request: HttpRequest<unknown>,

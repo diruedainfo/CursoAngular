@@ -13,6 +13,9 @@ import { BookingView } from './booking.view';
     BookingPage,
     BookingView
   ],
+  exports: [
+    BookingComponent
+  ],
   imports: [
     CommonModule,
     BookingRoutingModule

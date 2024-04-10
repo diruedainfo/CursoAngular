@@ -1,1 +1,23 @@
-<p>bookings works!</p>
+<article>
+  <h3> Working with {{ getBookingsLength() }} bookings </h3>
+
+  <ul>
+    <li *ngFor="let booking of bookings">
+
+      <a [routerLink]="['/','bookings','booking',booking.id]"
+         [ngClass]="booking.id | lowercase">{{ booking.id }}</a>
+
+      <span> 💸 {{ booking.tripId }}</span>
+      <span> ⤴️ {{ booking.passengerName }}</span>
+      <span> ⤵️ {{ booking.date | date:'yyyy-MMM-dd' }}</span>
+      <span> ⤴️ {{ booking.luggageKilos }}</span>
+
+      <ng-container *ngIf="booking.hasPremiumFoodPrice then superComida; else comidaNormal"></ng-container>
+      <ng-template #superComida> Comida Premium </ng-template>
+      <ng-template #comidaNormal> Comida Normal </ng-template>
+
+    </li>
+  </ul>
+  <button (click)="onReloadClick('agencies')" > © </button>
+  <aside *ngIf="reloading"> <app-reloading></app-reloading> </aside>
+</article>

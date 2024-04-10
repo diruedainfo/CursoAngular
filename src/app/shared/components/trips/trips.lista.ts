@@ -18,7 +18,7 @@ export class TripsLista implements OnInit {
     this.reload.emit();
   }
 
-  public getAgenciesLength() {
+  public getTripsLength() {
     return this.trips.length;
   }
   public getClassForStatus(status: string) {

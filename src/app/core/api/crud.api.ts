@@ -22,7 +22,6 @@ export abstract class CrudApi<ApiType> {
   ) {}
 
   public getAll$() {
-    this.notifyWorking();
     return this.http.get<ApiType[]>(this.url).pipe(this.statusPipe);
   }
 
@@ -58,6 +57,7 @@ export abstract class CrudApi<ApiType> {
     this.statusStore.setState({ isWorking: false, errorMessage: '' });
   }
   private notifyError(message: string) {
+    console.log("notifyError")
     console.warn({ isWorking: false, errorMessage: message });
     this.statusStore.setState({ isWorking: false, errorMessage: message });
   }

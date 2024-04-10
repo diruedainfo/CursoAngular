@@ -142,3 +142,10 @@ ng g m bookings/new-booking -m=bookings --route=booking/new --dry-run
 ng g c bookings/new-booking --type=page --dry-run
 ng g c bookings/new-booking --type=form --dry-run
 ...
+
+
+## 10. forms-cva
+
+...bash
+ng g c shared/controls/email -- type control --export true
+...

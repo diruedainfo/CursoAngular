@@ -11,7 +11,8 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+  }
 
   public intercept(
     request: HttpRequest<unknown>,
