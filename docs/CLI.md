@@ -127,3 +127,18 @@ ESTO GENERA UNA CLASE -> src/app/core/api/crud.api.ts
 ng g class core/api/status --type=store --dry-run
 ...
 
+(TAREA)
+ng g class core/api/bookings --type=api --dry-run    USAMOS ESTA OPCIÓN
+ng g m bookings --route=bookings -m=app --dry-run
+ng g c shared/components/bookings --export --type=lista --dry-run
+...
+ng g m bookings/booking -m=bookings --route=booking/:id  --dry-run
+ng g c bookings/booking --type=page --dry-run
+...
+GENERAMOS UNA VISTA PARA booking.page.ts
+ng g c bookings/booking --type=view --dry-run
+...
+ng g m bookings/new-booking -m=bookings --route=booking/new --dry-run
+ng g c bookings/new-booking --type=page --dry-run
+ng g c bookings/new-booking --type=form --dry-run
+...

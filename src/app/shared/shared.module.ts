@@ -8,9 +8,10 @@ import { TemplateControl } from './controls/template/template.control';
 import { SearchControl } from './controls/search/search.control';
 import {AgenciesLista} from "./components/agencies/agencies.lista";
 import {TripsLista} from "./components/trips/trips.lista";
+import { BookingsLista } from './components/bookings/bookings.lista';
 
 @NgModule({
-  declarations: [ReloadingComponent, AgenciesLista, TripsLista, EmailControl, TemplateControl, SearchControl],
+  declarations: [ReloadingComponent, AgenciesLista, TripsLista, EmailControl, TemplateControl, SearchControl, BookingsLista],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
   exports: [
     RouterModule,
@@ -21,6 +22,7 @@ import {TripsLista} from "./components/trips/trips.lista";
     EmailControl,
     TemplateControl,
     SearchControl,
+    BookingsLista,
   ],
 })
 export class SharedModule {}
