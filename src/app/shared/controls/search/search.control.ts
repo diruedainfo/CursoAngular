@@ -37,9 +37,9 @@ export class SearchControl implements OnInit {
       tap((searchTerm) => console.log('antes:', searchTerm)),
       debounceTime(500),
       tap((searchTerm) => console.log('después: ', searchTerm)),
-      filter((searchText) => searchText.length > 1),
+      filter((searchText) => searchText.length > 2),
       tap((searchTerm) => console.log('filtrado: ', searchTerm)),
-      distinctUntilChanged(),
+      distinctUntilChanged(), // Pasa de aquí si cambia el término
       tap((searchTerm) => console.log('para buscar: ', searchTerm)),
       tap((searchTerm) => this.search.emit(searchTerm))
     );
