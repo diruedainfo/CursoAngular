@@ -4,5 +4,5 @@ export interface Booking {
   passengerName: string;
   date: string;
   luggageKilos: number;
-  hasPremiumFoodPrice: boolean;
+  hasPremiumFoodPrice: string;
 }

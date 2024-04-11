@@ -1,6 +1,6 @@
 <form [formGroup]="form" autocomplete="off">
 
-  <div>
+<!--  <div>
     <label  for="name">Agency name</label>
     <input  id="name"
             name="name"
@@ -8,7 +8,14 @@
             formControlName="name"
             [attr.aria-invalid]="hasError('name')">
     <small *ngIf="mustShowMessage('name')">{{ getErrorMessage('name') }}</small>
-  </div>
+  </div>-->
+
+  <app-template-control
+    [form]="form"
+    formControlName="name"
+    label="Agency name"
+    placeholder="Agency name"
+  ></app-template-control>
 
   <div>
     <label  for="range">Operation range</label>

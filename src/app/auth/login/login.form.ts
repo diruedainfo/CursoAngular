@@ -33,7 +33,7 @@ export class LoginForm extends FormBase implements OnInit {
 
   public onSave() {
     const { email, password } = this.form.value;
-    const login: Login = { email: email.email, password };
+    const login: Login = { email: email, password };
     console.warn('Send login', login);
     this.login.emit(login);
   }

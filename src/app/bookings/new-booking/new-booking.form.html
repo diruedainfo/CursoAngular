@@ -1,1 +1,60 @@
-<p>new-booking works!</p>
+<form [formGroup]="form" autocomplete="off">
+
+  <app-template-control
+    [form]="form"
+    formControlName="idBooking"
+    label="Booking Name Id"
+    placeholder="Booking Name Id"
+  ></app-template-control>
+
+
+  <div>
+    <label  for="tripId">Trip Id</label>
+    <select id="tripId" name="tripId" formControlName="tripId">
+      <option value="">Select a trip</option>
+      <option *ngFor="let tripId of trips"
+              [value]="tripId.id">{{ tripId.destination }}</option>
+    </select>
+    <small *ngIf="mustShowMessage('tripId')">{{ getErrorMessage('tripId') }}</small>
+  </div>
+
+  <app-template-control
+    [form]="form"
+    formControlName="passengerName"
+    label="Passenger Name"
+    placeholder="Passenger Name"
+  ></app-template-control>
+
+  <div>
+    <label  for="date">Date</label>
+    <input  id="date"
+            name="date"
+            type="date"
+            formControlName="date"
+            [attr.aria-invalid]="hasError('startDate')">
+    <small *ngIf="mustShowMessage('startDate')">{{ getErrorMessage('startDate') }}</small>
+  </div>
+
+  <app-template-control
+    [form]="form"
+    formControlName="luggageKilos"
+    label="Luggage kilos"
+    inputType="text"
+  ></app-template-control>
+
+  <div>
+    <label for="hasPremiumFoodPrice">Has Premium Food Price</label>
+    <span *ngFor="let hasPremiumFoodPrice of premiumFood">
+      <label>{{ hasPremiumFoodPrice }}</label>
+      <input  name="hasPremiumFoodPrice"
+              id="status-{{hasPremiumFoodPrice|lowercase}}"
+              type="radio"
+              formControlName="hasPremiumFoodPrice"
+              [value]="hasPremiumFoodPrice">
+    </span>
+  </div>
+
+  <button type="submit"
+          [disabled]="form.invalid"
+          (click)="onSave()">Send new booking data</button>
+</form>

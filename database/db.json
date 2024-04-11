@@ -36,7 +36,48 @@
       "id": 6
     }
   ],
-  "bookings": [],
+  "bookings": [
+    {
+      "id": "Super reserva",
+      "tripId": "space-y-mars-2",
+      "passengerName": "Pepito",
+      "date": "10-05-2024",
+      "luggageKilos": 1000,
+      "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "mi-super-viaje",
+      "tripId": "green-origin-low-orbit-3",
+      "passengerName": "Pepito",
+      "date": "2024-04-12",
+      "luggageKilos": "1200",
+      "hasPremiumFoodPrice": "Normal Food"
+    },
+    {
+      "id": "asdfasdfsadfsadf",
+      "tripId": "green-origin-low-orbit-3",
+      "passengerName": "asier",
+      "date": "2024-04-12",
+      "luggageKilos": 999,
+      "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "asdfjpoaspdofjao",
+      "tripId": "space-y-mars-2",
+      "passengerName": "asdfa",
+      "date": "2024-04-19",
+      "luggageKilos": "999",
+      "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "otra-booking",
+      "tripId": "space-y-moon-1",
+      "passengerName": "Pepita",
+      "date": "2024-04-19",
+      "luggageKilos": 999,
+      "hasPremiumFoodPrice": "Premium Food"
+    }
+  ],
   "agencies": [
     {
       "id": "space-y",

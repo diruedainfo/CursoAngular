@@ -20,7 +20,7 @@ export class BookingsPage implements OnInit {
   constructor(
     private bookingsApi: BookingsApi,
     private tripsApi: TripsApi,
-    private route: ActivatedRoute
+    //private route: ActivatedRoute
   ) {
     console.log("hola booking page")
     this.bookings$ = this.bookingsApi.getAll$();

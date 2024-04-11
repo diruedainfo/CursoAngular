@@ -21,8 +21,14 @@ export class IdNameApi {
     return this.ranges;
   }
 
+  private premiumFood = ['Premium Food', 'Normal Food']
+
   public getStatuses(){
     return this.statuses;
+  }
+
+  public getFood(){
+    return this.premiumFood;
   }
 
 }
