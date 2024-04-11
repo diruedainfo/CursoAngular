@@ -30,6 +30,7 @@ export abstract class CrudApi<ApiType> {
     return this.http.get<ApiType>(this.url + id).pipe(this.statusPipe);
   }
 
+  // método de busqueda para el control de busqueda
   public getByText$(text: string | null): Observable<ApiType[]> {
     if (text === null || text == '') return this.getAll$();
     return this.http.get<ApiType[]>(this.url + '?q=' + text); // .pipe(delay(3000));

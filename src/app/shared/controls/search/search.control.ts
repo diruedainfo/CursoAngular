@@ -37,6 +37,7 @@ export class SearchControl implements OnInit {
       tap((searchTerm) => console.log('antes:', searchTerm)),
       debounceTime(500),
       tap((searchTerm) => console.log('después: ', searchTerm)),
+      // filtra los elementos que tengan una longitud mayor de 2
       filter((searchText) => searchText.length > 2),
       tap((searchTerm) => console.log('filtrado: ', searchTerm)),
       distinctUntilChanged(), // Pasa de aquí si cambia el término
