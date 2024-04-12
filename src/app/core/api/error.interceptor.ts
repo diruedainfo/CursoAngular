@@ -27,7 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     const httpError = error as HttpErrorResponse;
     if (httpError) {
       if (httpError.status === 401 || httpError.status === 403) {
-        console.log('👮🏼‍♂️ security error');
+        console.log('👮🏼‍♂️ security error 👮🏼‍♂️');
         this.router.navigate(['/', 'auth', 'login']);
       } else {
         if (httpError.status === 0 || httpError.status >= 500) {

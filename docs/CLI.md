@@ -160,4 +160,10 @@ ng g c shared/controls/search --type=control --export
 
 ## 12. Auth
 
+...bash
+ng g class auth/api/auth --type=api
+ng g i auth/api/register --type=interface
+ng g i auth/api/login --type=interface
 ...
+INTERCEPTOR
+ng g interceptor core/api/error --dry-run

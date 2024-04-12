@@ -20,8 +20,8 @@ import {Storage} from "./utils/storage.interface";
   imports: [CommonModule, RouterModule, HttpClientModule],
   exports: [HeaderComponent, FooterComponent],
   providers: [
-    /*{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },*/
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+/*    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },*/
     {
       provide: StorageBase,
       useFactory: (): Storage => {

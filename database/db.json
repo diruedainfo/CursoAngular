@@ -5,35 +5,6 @@
       "password": "$2a$10$XmhheMN/c0uDF.bs2cJzlO4GJUD51ybHwv4rnY5O5517DsEZ6Snaa",
       "name": "Alberto Basalo",
       "id": 1
-    },
-    {
-      "email": "diego.rueda@igmweb.com",
-      "password": "$2a$10$cCMHJb0hOTGtS4xjCIsMu.xprBOKWbXlGsXNlBX1ZKxi2p3GGT8Ju",
-      "id": 2
-    },
-    {
-      "email": "diego@ja.es",
-      "password": "$2a$10$Qms7mh7YVlzPV2gXaoRQyOyP8CCgpMUl2mEOjM96yL0cPqo7XuOl2",
-      "name": "Diego",
-      "id": 3
-    },
-    {
-      "email": "diego@diego.es",
-      "password": "$2a$10$H0e7c.NO6M9cLFHURP5Ac.St9p/ANvia8smKA8YohcoqB3Kar887a",
-      "name": "diego",
-      "id": 4
-    },
-    {
-      "email": "d@d.es",
-      "password": "$2a$10$SzTZ.A70GOvXMLpeqQt2Xu7PW6oJaozVXOgBe3ibi5mHxA2XWIrLS",
-      "name": "diego",
-      "id": 5
-    },
-    {
-      "email": "alex@hotmail.com",
-      "password": "$2a$10$e/GyxIZgxz5HMhOmNBZV5urcR88BiUK5DM8Juno5L9aRMxoy96t2e",
-      "name": "Alex",
-      "id": 6
     }
   ],
   "bookings": [
