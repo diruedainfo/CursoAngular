@@ -188,3 +188,6 @@ ng g class core/utils/local-storage --type=service --dry-run
 creamos otra clase session-storage
 ng g class core/utils/session-storage --type=service --dry-run
 ...
+creamos una INTEFACE para el STORAGE
+ng g interface core/utils/storage --type=interface --dry-run
+

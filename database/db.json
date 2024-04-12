@@ -69,6 +69,14 @@
       "date": "2024-04-26",
       "luggageKilos": 2560,
       "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "mi-booking-666",
+      "tripId": "al-ladito",
+      "passengerName": "asdfd",
+      "date": "2024-04-20",
+      "luggageKilos": 999,
+      "hasPremiumFoodPrice": "Premium Food"
     }
   ],
   "agencies": [
@@ -221,6 +229,21 @@
       "startDate": "2024-04-09",
       "endDate": "2024-04-19",
       "flightPrice": 1000002,
+      "stayingNightPrice": 10000,
+      "kind": "WithStay",
+      "status": "Waiting",
+      "extraLuggagePricePerKilo": 50000,
+      "premiumFoodPrice": 0
+    },
+    {
+      "id": "a-la-china-mandarina",
+      "agencyId": "ourense-nasa",
+      "agencyTripCode": "code1",
+      "destination": "a la china mandarina",
+      "places": 1,
+      "startDate": "2024-04-13",
+      "endDate": "2024-04-26",
+      "flightPrice": 1000000,
       "stayingNightPrice": 10000,
       "kind": "WithStay",
       "status": "Waiting",
