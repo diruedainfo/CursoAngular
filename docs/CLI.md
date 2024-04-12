@@ -176,3 +176,15 @@ ng g interceptor auth/api/auth --dry-run
 
 GUARDS
 ng g guard auth/api/authenticated --implements CanLoad --dry-run
+
+...
+STORAGE
+creamos una clase
+ng g class core/utils/storage --type=base --dry-run
+
+creamos otra clase local-storage
+ng g class core/utils/local-storage --type=service --dry-run
+
+creamos otra clase session-storage
+ng g class core/utils/session-storage --type=service --dry-run
+...
