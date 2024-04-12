@@ -165,8 +165,11 @@ ng g class auth/api/auth --type=api
 ng g i auth/api/register --type=interface
 ng g i auth/api/login --type=interface
 ...
-INTERCEPTOR ERROR
+INTERCEPTOR ERROR -> Log + Login
 ng g interceptor core/api/error --dry-run
-INTERCEPTOR AUTH
+
+ApiAuth -> pipe -> accessToken
+
+INTERCEPTOR AUTH -> AuthApi.accessToken -> request.headers['Authorization']
 ng g interceptor auth/api/auth --dry-run
 ...
