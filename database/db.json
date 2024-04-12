@@ -5,6 +5,12 @@
       "password": "$2a$10$XmhheMN/c0uDF.bs2cJzlO4GJUD51ybHwv4rnY5O5517DsEZ6Snaa",
       "name": "Alberto Basalo",
       "id": 1
+    },
+    {
+      "email": "pruebas@pruebas.es",
+      "password": "$2a$10$bf4pQbRbjjj/cdCTOH4z5.OUEjlOTgAWjyyXehW6vKAFSyFroyYUO",
+      "name": "pruebas",
+      "id": 3
     }
   ],
   "bookings": [
@@ -45,6 +51,14 @@
       "tripId": "space-y-moon-1",
       "passengerName": "Pepita",
       "date": "2024-04-19",
+      "luggageKilos": 999,
+      "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "nueva-booking-mas",
+      "tripId": "green-origin-low-orbit-3",
+      "passengerName": "pepito",
+      "date": "2024-04-13",
       "luggageKilos": 999,
       "hasPremiumFoodPrice": "Premium Food"
     }

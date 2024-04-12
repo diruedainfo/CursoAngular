@@ -23,12 +23,12 @@ export class RegisterForm extends FormBase implements OnInit {
     super(fms);
     super.form = formBuilder.group(
       {
-        name: new FormControl('Alberto Basalo', [
+        name: new FormControl('Diego Rueda', [
           Validators.required,
           Validators.minLength(2),
         ]),
-        email: new FormControl('albertobasalo@hotmail.com'),
-        password: new FormControl('1234', [
+        email: new FormControl('pruebas@pruebas.es'),
+        password: new FormControl('12345', [
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(10),
