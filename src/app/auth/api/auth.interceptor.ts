@@ -10,6 +10,8 @@ import {AuthAPI} from './auth.api';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
+
+  //
   constructor(private authApi: AuthAPI) {
   }
 

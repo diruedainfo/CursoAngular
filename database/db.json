@@ -115,6 +115,18 @@
       "name": "vavavava",
       "range": "Orbital",
       "status": "Active"
+    },
+    {
+      "id": "ourense-nasa",
+      "name": "Ourense Nasa",
+      "range": "Interstellar",
+      "status": "Active"
+    },
+    {
+      "id": "ceboliño-nasa-ursss",
+      "name": "Ceboliño Nasa Ursss",
+      "range": "Orbital",
+      "status": "Pending"
     }
   ],
   "trips": [

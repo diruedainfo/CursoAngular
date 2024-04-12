@@ -20,7 +20,9 @@ export class AuthAPI {
   }
 
   public register$(register: Register) {
-    return this.http.post<AuthResponse>(this.url + 'register', register).pipe(
+    return this.http
+      .post<AuthResponse>(this.url + 'register', register)
+      .pipe(
       tap((response) => {
         this.accessToken = response.accessToken;
         this.storage.setToken(this.accessToken);
@@ -29,7 +31,9 @@ export class AuthAPI {
   }
 
   public login$(login: Login) {
-    return this.http.post<AuthResponse>(this.url + 'login', login).pipe(
+    return this.http
+      .post<AuthResponse>(this.url + 'login', login)
+      .pipe(
       tap((response) => {
         this.accessToken = response.accessToken;
         this.storage.setToken(this.accessToken);
