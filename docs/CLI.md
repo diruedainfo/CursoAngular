@@ -173,3 +173,6 @@ ApiAuth -> pipe -> accessToken
 INTERCEPTOR AUTH -> AuthApi.accessToken -> request.headers['Authorization']
 ng g interceptor auth/api/auth --dry-run
 ...
+
+GUARDS
+ng g guard auth/api/authenticated --implements CanLoad --dry-run

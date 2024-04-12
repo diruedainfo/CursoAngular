@@ -61,6 +61,14 @@
       "date": "2024-04-13",
       "luggageKilos": 999,
       "hasPremiumFoodPrice": "Premium Food"
+    },
+    {
+      "id": "viaje-estelar-1",
+      "tripId": "green-origin-iss-4",
+      "passengerName": "Alberto",
+      "date": "2024-04-26",
+      "luggageKilos": 2560,
+      "hasPremiumFoodPrice": "Premium Food"
     }
   ],
   "agencies": [
