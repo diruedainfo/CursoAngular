@@ -19,7 +19,7 @@ export class AppComponent {
       }
     });
     swUpdate.checkForUpdate();
-    //interval(1000 * 60 * 60).subscribe(() => swUpdate.checkForUpdate());
+    interval(1000 * 60 * 60).subscribe(() => swUpdate.checkForUpdate());
   }
   public onReload() {
     window.location.reload();
